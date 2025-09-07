@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <picture></picture><title>D'ESPRESSO COFFESHOP - Luxury Beverage Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #008080, #006666, #023733);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.1);
+        }
+        .menu-item {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Special Section Animations */
+        .special-item {
+            animation: slideIn 1.2s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .highlight {
+            position: relative;
+            overflow: hidden;
+        }
+        .highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(246, 246, 246, 0.5), transparent);
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        /* Mobile-first responsive adjustments */
+        @media (max-width: 640px) {
+            .hero-gradient {
+                padding: 1rem 2rem;
+            }
+            .text-5xl {
+                font-size: 2.5rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .text-xl {
+                font-size: 1rem;
+            }
+            /* Adjust special section for mobile */
+            .special-grid {
+                display: flex;
+                overflow-x: auto;
+                gap: 1rem;
+            }
+            .special-grid::-webkit-scrollbar {
+                display: none;
+            }
+            .special-grid {
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;  /* Firefox */
+            }
+            .special-item {
+                flex-shrink: 0;
+                width: 45%;
+            }
+            .special-item h3 {
+                font-size: 1.5rem;
+            }
+            /* Mobile menu in 3 columns */
+            #mobile-menu ul {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+            }
+            #mobile-menu li {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Header (Mobile-friendly nav) -->
+    <header class="bg-teal-700 shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <img src="Asset 1.png" alt="D'ESPRESSO Logo" class="h-8 w-auto">
+                <nav class="hidden md:flex">
+                    <ul class="flex space-x-6">
+                        <li><a href="#home" class="text-white hover:text-teal-200 transition">Home</a></li>
+                        <li><a href="#special" class="text-white hover:text-teal-200 transition">Special</a></li>
+                        <li><a href="#menu" class="text-white hover:text-teal-200 transition">Menu</a></li>
+                        <li><a href="#space" class="text-white hover:text-teal-200 transition">Space</a></li>
+                        <li><a href="#about" class="text-white hover:text-teal-200 transition">About</a></li>
+                        <li><a href="#contact" class="text-white hover:text-teal-200 transition">Contact</a></li>
+                    </ul>
+                </nav>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white focus:outline-none" id="mobile-menu-toggle">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <ul class="space-y-2 py-2">
+                    <li><a href="#home" class="block text-white hover:text-teal-200 transition px-4 py-2">Home</a></li>
+                    <li><a href="#special" class="block text-white hover:text-teal-200 transition px-4 py-2">Special</a></li>
+                    <li><a href="#menu" class="block text-white hover:text-teal-200 transition px-4 py-2">Menu</a></li>
+                    <li><a href="#space" class="block text-white hover:text-teal-200 transition px-4 py-2">Space</a></li>
+                    <li><a href="#about" class="block text-white hover:text-teal-200 transition px-4 py-2">About</a></li>
+                    <li><a href="#contact" class="block text-white hover:text-teal-200 transition px-4 py-2">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Optimized for mobile) -->
+    <section id="home" class="hero-gradient text-white py-16 px-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">D,ESPRESSO
+            </h1>
+            <p class="text-lg sm:text-xl mb-8">SAMALANGA</p>
+        </div>
+    </section>
+
+    <!-- Special Beverages Section (Prominent Display) -->
+    <section id="special" class="py-10 px-4 bg-gradient-to-br from-teal-100 to-emerald-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-9 text-center">
+            <h2 class="text-4xl font-bold mb-12 text-teal-800">NEW MENU</h2>
+            <div class="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-4 gap-8 special-grid">
+                <!-- Special Item 1 -->
+                <div class="special-item bg-white highlight rounded-lg shadow-xl overflow-hidden card-hover transform scale-105">
+                    <div class="relative">
+                        <img src="mtch.jpg" alt="Luxurious golden latte with edible gold leaf on top, in a sleek black ceramic cup, surrounded by exotic spices and herbs on a velvet tablecloth, candlelit ambiance highlighting the shimmering gold flakes and warm amber liquid, ultra-high resolution detail for dramatic effect" class="w-full h-45 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-teal-800 to-transparent opacity-30"></div>
+                        <div class="absolute bottom-4 left-4">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-teal-900">Matcha Latte</h3>
+                    </div>
+                </div>
+                <!-- Special Item 2 -->
+                <div class="special-item bg-white highlight rounded-lg shadow-xl overflow-hidden card-hover transform scale-105">
+                    <div class="relative">
+                        <img src="rmp.jpg" alt="Luxurious golden latte with edible gold leaf on top, in a sleek black ceramic cup, surrounded by exotic spices and herbs on a velvet tablecloth, candlelit ambiance highlighting the shimmering gold flakes and warm amber liquid, ultra-high resolution detail for dramatic effect" class="w-full h-45 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-teal-800 to-transparent opacity-30"></div>
+                        <div class="absolute bottom-4 left-4">
+                         </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-teal-900">Kopi Rempah</h3>
+                    </div>
+                </div>
+                <!-- Special Item 3 -->
+                <div class="special-item bg-white highlight rounded-lg shadow-xl overflow-hidden card-hover transform scale-105">
+                    <div class="relative">
+                        <img src="kpd.jpg" alt="Luxurious golden latte with edible gold leaf on top, in a sleek black ceramic cup, surrounded by exotic spices and herbs on a velvet tablecloth, candlelit ambiance highlighting the shimmering gold flakes and warm amber liquid, ultra-high resolution detail for dramatic effect" class="w-full h-45 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-teal-800 to-transparent opacity-30"></div>
+                        <div class="absolute bottom-4 left-4">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-teal-900">Es Kopi Pandan</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 px-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-9 lg:px-10">
+                <!-- Menu Item 1 -->
+                <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="final-01.jpg" alt="Steaming cup of premium arabica coffee with frothy latte art on a marble counter in a luxurious coffeeshop lounge, natural lighting, high-resolution detail focusing on intricate foam patterns and ceramic texture, optimized for mobile viewing" 
+                        class="w-full h-full sm:h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-teal-700 to-transparent opacity-25"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Space for Beverages Section -->
+    <section id="space" class="bg-teal-100 py-16 px-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-12">Area</h2>
+            <p class="text-lg mb-8">Kami menghadirkan dua konsep untuk memberikan pengalaman kopi terbaik anda: area Coffeshop ala modern dan warkop ala tempat ngopi khas aceh.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="photo_2025-09-07_10-50-11.jpg" alt="Cozy lounge area in a modern coffeeshop with plush seating, wooden tables, ambient lighting, and plants, perfect place to enjoy beverages in comfort, mobile screen perspective" class="w-full h-80 object-cover rounded mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Area Indoor</h3>
+                    <p>tampil modern dan hangat, dengan pencahayaan lembut, dekorasi minimalis, dan suasana yang hidup berkat interaksi pengunjung dan barista. Cocok untuk ngopi santai atau kerja produktif.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="photo_2025-09-07_10-50-15.jpg" alt="Outdoor seating space with cozy chairs, small tables under shaded roof, greenery surroundings, candlelit ambiance at evening, suitable for sipping drinks outdoors, vertical mobile view" class="w-full h-80 object-cover rounded mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Outdoor Space</h3>
+                    <p>menawarkan suasana terbuka yang santai dan bersahaja. Ditemani semilir angin dan lalu lintas kehidupan sekitar. Tempatnya terasa hidup, penuh interaksi, dan cocok untuk mereka yang mencari kehangatan tanpa formalitas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-teal-100 py-16 px-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Thank's For Visiting</h2>
+            <p class="text-lg text-center text-gray-700">Jika memuaskan kabarkan pada teman, jika kurang memuaskan kabarkan pada kami
+</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-12">Contact Us</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Address</h3>
+                    <p>Jln. Sp Matang - Keude Samalanga</p>
+                    <p>Depan Kantor Pos Samalanga</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Phone</h3>
+                    <p>0852 6031 4091</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Email</h3>
+                    <p>info@despressocoffeeshop.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Call to Action -->
+    <section class="bg-teal-50 py-16 px-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">Follow and Ikuti Akun Media Kami</h2>
+            <p class="text-lg mb-8">Posting momen terbaikmu di D'ESPRESSO COFFESHOP dan nantikan bonusnya! Share your best moments at our coffeeshop and look forward to exciting bonuses.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="https://instagram.com/despresso_samalan" class="text-teal-600 hover:text-teal-800 transition">Instagram</a>
+                <a href="#" class="text-teal-600 hover:text-teal-800 transition">Facebook</a>
+                <a href="#" class="text-teal-600 hover:text-teal-800 transition">Twitter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-teal-700 text-white py-8 px-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>© 2023 D'ESPRESSO COFFESHOP. Indulge Luxuriously.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>
